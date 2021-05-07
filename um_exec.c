@@ -67,12 +67,12 @@ static Codeword get_codeword(uint32_t word, Codeword codeword){
     //Determine if we have a 3 or 2 register instruction and then assemble the
     //designated codeword
     if (opcode == 13){
-        codeword.opcode = Bitpack_getu(word, 4, 28);
+        codeword.opcode = opcode;
         codeword.a = Bitpack_getu(word, 3, 25);
         codeword.b = Bitpack_getu(word, 25, 0);
     }
     else{
-        codeword.opcode = Bitpack_getu(word, 4 , 28);
+        codeword.opcode = opcode;
         codeword.a = Bitpack_getu(word, 3, 6);
         codeword.b = Bitpack_getu(word, 3, 3);
         codeword.c = Bitpack_getu(word, 3, 0);

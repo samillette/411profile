@@ -34,19 +34,19 @@ extern Memseg_T Load_prog(FILE * fp){
     //Iterate through all of the instructions in the passed in
     //program, assembeling each word and inserting it into a
     //Memory segment.
-    for (int wordCTR = 0; wordCTR < size; ++wordCTR){
-        uint32_t word = 0;
+    for (int wordCTR = 0; wordCTR < size; wordCTR++){
+        uint32_t last8 = getc(fp);
+        last8 = last8 << 24;
+        uint32_t midl8 = getc(fp);
+        midl8 = midl8 << 16;
+        uint32_t midf8 = getc(fp);
+        midf8 = midf8 << 8;
+        uint32_t first8 = getc(fp);
 
-        //Assemble the word
-        for (int byteCTR = 1; byteCTR <= WORDSIZE; ++byteCTR){
-
-            uint8_t byte = getc(fp);
-            word = Bitpack_newu(word,BYTESIZE, (WORDSIZE*BYTESIZE)
-                                            - (BYTESIZE*byteCTR) ,byte);
-        }
+        uint32_t word = (((last8 | midl8) | midf8 ) | first8);
 
         //Store the instruction(word) into the memory space
-        Memseg_store(program, (uint32_t)word,location,wordCTR);
+        Memseg_store(program, word, location, wordCTR);
     }
     return program;
 }

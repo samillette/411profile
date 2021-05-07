@@ -18,7 +18,7 @@ LIBS="-llocality -lcii -lnetpbm -larith411 -lm"
 LFLAGS="-L/usr/local/cii/lib -L/usr/local/lib -L/csc/411/lib"
 
 # these flags max out warnings and debug info
-FLAGS="-no-pie -g -O0 -Wall -Wextra -Werror -Wfatal-errors -std=c99 -pedantic"
+FLAGS="-no-pie -g -O1 -Wall -Wextra -Werror -Wfatal-errors -std=c99 -pedantic"
 
 rm -f *.o  # make sure no object files are left hanging around
 
