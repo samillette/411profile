@@ -1,5 +1,9 @@
 Group: Just me; the high roller, cliff jumper, master chef Sam Millette
 Help: My man Tim hooked me up with a fresh copy of his UM
-Timing: 
-Analyzing problems:
-Solving problems:
+
+Timing: The execution of the program took the most time, that is, actually parsing and executing operations. More
+specifically, around 40% of the time was spent within accessing the operations themselves with the bitpack module.
+
+Analyzing problems: Spent around 2 hours here.
+
+Solving problems: Spent around 4 here.
